@@ -1,15 +1,13 @@
 import { useParams, Link } from "react-router-dom"
-import { useEffect, useState } from "react"
-
+import { useEffect } from "react"
 import useProyectos from "../hooks/useProyectos"
 import ModalFormularioTarea from "../components/ModalFormularioTarea"
 import Tarea from "../components/Tarea"
-import ModalEliminarTarea from "../components/modalEliminarTarea"
-import Alerta from "../components/Alerta"
 import Colaborador from "../components/Colaborador"
 import ModalEliminarColaborador from "../components/ModalEliminarColaborador"
 import useAdmin from "../hooks/useAdmin"
 import io from 'socket.io-client'
+import ModalEliminarTarea from "../components/modalEliminarTarea"
 
 let socket;
 
@@ -138,7 +136,7 @@ const Proyecto = () => {
             )}
 
             <ModalFormularioTarea />
-            <ModalEliminarTarea />
+  <ModalEliminarTarea/>
             <ModalEliminarColaborador />
 
         </>
