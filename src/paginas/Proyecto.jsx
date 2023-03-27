@@ -1,13 +1,14 @@
 import { useParams, Link } from "react-router-dom"
 import { useEffect } from "react"
 import useProyectos from "../hooks/useProyectos"
+import useAdmin from "../hooks/useAdmin"
 import ModalFormularioTarea from "../components/ModalFormularioTarea"
+import ModalEliminarTarea from "../components/modalEliminarTarea"
+import ModalEliminarColaborador from "../components/ModalEliminarColaborador"
 import Tarea from "../components/Tarea"
 import Colaborador from "../components/Colaborador"
-import ModalEliminarColaborador from "../components/ModalEliminarColaborador"
-import useAdmin from "../hooks/useAdmin"
 import io from 'socket.io-client'
-import ModalEliminarTarea from "../components/modalEliminarTarea"
+
 
 let socket;
 
@@ -15,8 +16,10 @@ const Proyecto = () => {
 
     const params = useParams()
 
-    const { obtenerProyecto, proyecto, cargando, handleModalTarea, alerta, 
-        submitTareasProyecto,eliminarTareasProyecto, actualizarTareaProyecto,cambiarEstadoTarea } = useProyectos()
+    const { obtenerProyecto, proyecto, cargando, handleModalTarea, alerta,
+        submitTareasProyecto, eliminarTareasProyecto, actualizarTareaProyecto, cambiarEstadoTarea } = useProyectos()
+
+    const admin = useAdmin()
 
     useEffect(() => {
         obtenerProyecto(params.id)
@@ -50,7 +53,6 @@ const Proyecto = () => {
 
     const { nombre } = proyecto
 
-    const admin = useAdmin()
 
     if (cargando) return ''
     const { msg } = alerta
@@ -136,7 +138,7 @@ const Proyecto = () => {
             )}
 
             <ModalFormularioTarea />
-  <ModalEliminarTarea/>
+            <ModalEliminarTarea />
             <ModalEliminarColaborador />
 
         </>
