@@ -1,20 +1,21 @@
 import { useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import AuthLayout from './layouts/AuthLayout'
-import ConfirmarCuenta from './paginas/ConfirmarCuenta'
-import Login from './paginas/Login'
-import NuevoPassword from './paginas/NuevoPassword'
-import OlvidePassword from './paginas/OlvidePassword'
-import Registrar from './paginas/Registrar'
 import RutaProtegida from './layouts/RutaProtegida'
+
+import Login from './paginas/Login'
+import Registrar from './paginas/Registrar'
+import OlvidePassword from './paginas/OlvidePassword'
+import NuevoPassword from './paginas/NuevoPassword'
+import ConfirmarCuenta from './paginas/ConfirmarCuenta'
 import Proyectos from './paginas/Proyectos'
 import NuevoProyecto from './paginas/NuevoProyecto'
-
-import { AuthProvider } from './context/AuthProvider'
-import { ProyectosProvider } from './context/ProyectosProvider'
 import Proyecto from './paginas/Proyecto'
 import EditarProyecto from './paginas/EditarProyecto'
 import NuevoColaborador from './paginas/NuevoColaborador'
+
+import { AuthProvider } from './context/AuthProvider'
+import { ProyectosProvider } from './context/ProyectosProvider'
 
 
 function App() {
@@ -23,7 +24,7 @@ function App() {
   return (
     <BrowserRouter>
       <AuthProvider>
-      <ProyectosProvider>
+        <ProyectosProvider>
           <Routes>
 
             <Route path='/' element={<AuthLayout />} >
@@ -46,7 +47,7 @@ function App() {
 
             </Route>
           </Routes>
-          </ProyectosProvider>
+        </ProyectosProvider>
       </AuthProvider>
     </BrowserRouter>
   )
